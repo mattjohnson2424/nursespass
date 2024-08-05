@@ -1,0 +1,19 @@
+.info-log-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns with equal width */
+    grid-gap: 10px; /* Spacing between columns */
+    width: 90vw;
+    padding-top: 10px;
+    margin: 0 auto;
+    /* background-color: #393939; */
+  }
+
+  
+  .info-log-text-input {
+    padding: 10px 5px;
+    margin-bottom: 10px;
+  }
+
+  .info-log {
+    padding-top: 8vh;
+  }

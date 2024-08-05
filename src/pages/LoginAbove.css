@@ -1,0 +1,33 @@
+.login-above-container {
+    width: 100vw;
+    height: 90vh;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(7px);
+}
+
+.login-text {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5)
+}
+
+.title-text {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.subtitle-text {
+    font-size: 2rem;
+}

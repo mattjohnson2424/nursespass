@@ -1,0 +1,12 @@
+.delete-log-btn {
+    background-color: red;
+    margin-left: 20px;
+}
+
+.delete-log-btn:hover {
+    background-color: red;
+}
+
+.row {
+    margin-top: 30px;
+}

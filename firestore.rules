@@ -1,0 +1,51 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isUserTeacher() {
+      // Get the user's ID from the request
+      let userId = request.auth.uid;
+      
+      // Check if the user's ID exists in the admins collection
+      return exists(/databases/$(database)/documents/teachers/$(userId));
+    }
+    
+    function isUserNurse() {
+      // Get the user's ID from the request
+      let userId = request.auth.uid;
+      
+      // Check if the user's ID exists in the admins collection
+      return exists(/databases/$(database)/documents/nurses/$(userId));
+    }
+    
+    function isUserAdmin() {
+      // Get the user's ID from the request
+      let userId = request.auth.uid;
+      
+      // Check if the user's ID exists in the admins collection
+      return exists(/databases/$(database)/documents/admins/$(adminId));
+    }
+  
+    match /logs/{logId} {
+    	allow read: if true;
+      allow write: if isUserTeacher() || isUserNurse() || isUserAdmin();
+    }
+    
+    match /teachers/{teacherId} {
+    	allow read: if true;
+      allow write: if isUserAdmin();
+    }
+    
+    match /nurses/{nurseId} {
+    	allow read: if true;
+      allow write: if isUserAdmin();
+    }
+    
+    match /admins/{adminId} {
+    	allow read: if true;
+      allow write: if false;
+    }
+    
+  }
+}
